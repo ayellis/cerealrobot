@@ -69,7 +69,6 @@ class Order:
         
     
     def merge(self,order):
-        self.table = order.table
         self.waiter = order.waiter
         
         for menuItem, quantity in order.items.iteritems():

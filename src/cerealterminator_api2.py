@@ -26,7 +26,7 @@ def show_logo(restaurant_name):
     print stars
     
 # Note: eventually this could also pop up a nice colorful display
-def start_meal():
+def start_meal(restaurant_name, greeting):
     """
     sets up the system for a new group of diners
     by displaying a friendly greeting.
@@ -146,9 +146,7 @@ def show_order(order1):
 
 # Merge two orders and returns the merged order
 def merge_orders(order1, order2):
-    if (order1.getTable() != order2.getTable()):
-        raise Exception("Tables must match")
-    newOrder = order1.Order(order1.getTable(), order1.getWaiter())
+    newOrder = order2.Order(order1.getWaiter())
     newOrder.merge(order1)
     newOrder.merge(order2)
     if (order1.getWaiter() != order2.getWaiter()):

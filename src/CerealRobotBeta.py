@@ -1,13 +1,48 @@
 from cerealterminator_api2 import *
+from cerealormilk import *
 
 # introduction to Cereal Robot
-start_meal()
+start_meal("Cereal Terminator, Home of the Cereal Robot", "Where you can have anything... as long as it's cereal.")
 
-myMenu = get_menu('../menufinal.csv',"Pick Your Poison")
-show_menu(myMenu)
-
-myOrder = create_order("Terminator")
-get_choice(myMenu, myOrder)
+#ask if they want cereal or milk
+gettingData = True
+getCereal = False
+getMilk = False
+counter = 0
+orderlist = []
+while gettingData and counter < 2:
+    gettingData = get_more()
+    counter = counter + 1
+    if gettingData:
+        menu_variation = cereal_milk(gettingData)
+        if menu_variation == "../menu.csv" and 'c' in orderlist:
+            print "Sorry you've already ordered that... proceed"
+            break
+        elif menu_variation == "../menu1.csv" and 'm' in orderlist:
+            print "Sorry you've already ordered that... proceed"
+            break            
+        elif menu_variation == "../menu.csv":
+            orderlist = orderlist + ['c','C']
+        elif menu_variation == "../menu1.csv":
+            orderlist = orderlist + ['m','M']
+        myMenu = get_menu(menu_variation,"Pick Your Poison")
+        show_menu(myMenu)
+        
+        if menu_variation == "../menu.csv":
+            getCereal = True
+            myOrderc = create_order("Terminator")
+            get_choice(myMenu, myOrderc)
+            myOrder = myOrderc
+        else:
+            getMilk = True
+            myOrderm = create_order("Terminator")
+            get_choice(myMenu,myOrderm)
+    if getCereal == True and getMilk == False:
+        myOrder = myOrderc
+    elif getCereal == False and getMilk == True:
+        myOrder = myOrderm
+    elif getCereal == True and getMilk == True:
+        myOrder = merge_orders(myOrderc, myOrderm)
 show_order(myOrder)
 
 tickets = prepare_food(myOrder)
