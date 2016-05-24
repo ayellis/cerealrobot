@@ -1,0 +1,8 @@
+<application>
+  <component name="FindRecents">
+    <findStrings>
+      <find>game</find>
+      <find>enabled</find>
+    </findStrings>
+  </component>
+</application>
