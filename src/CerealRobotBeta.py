@@ -1,5 +1,6 @@
-from cerealterminator_api2 import *
-from cerealormilk import *
+from util.cerealormilk import *
+from util.cerealterminator_api2 import *
+
 # Stephanie was here
 # introduction to Cereal Robot
 start_meal("Cereal Terminator, Home of the Cereal Robot", "Where you can have anything... as long as it's cereal.")
