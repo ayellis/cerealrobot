@@ -3,6 +3,8 @@
     <findStrings>
       <find>game</find>
       <find>enabled</find>
+      <find>raw</find>
+      <find>print</find>
     </findStrings>
   </component>
 </application>
