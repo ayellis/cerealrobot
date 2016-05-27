@@ -5,6 +5,7 @@
       <find>enabled</find>
       <find>raw</find>
       <find>print</find>
+      <find>poopy</find>
     </findStrings>
   </component>
 </application>
